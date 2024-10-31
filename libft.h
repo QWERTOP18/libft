@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 09:49:14 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/10/29 21:16:17 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/10/31 13:38:41 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,6 @@
 # endif
 
 # define _ISBIT(bit) ((bit < 8) ? (1 << (bit)) << 8 : (1 << (bit)) >> 8)
-
-typedef struct s_str
-{
-	int				len;
-	char			*str;
-}					t_str;
 
 typedef struct s_list
 {

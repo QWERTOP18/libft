@@ -6,13 +6,13 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 16:34:12 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/10/29 17:40:20 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/10/31 13:16:28 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_strtol(const char *str)
+static long	ft_strtol(const char *str)
 {
 	long long	result;
 	long		sign;

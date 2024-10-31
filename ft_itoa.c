@@ -6,60 +6,49 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 16:59:25 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/10/29 21:47:27 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/10/31 13:50:16 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
-#include <stdlib.h>
 
-static void	ft_swap(char *a, char *b)
+static int	ft_intlen(int n)
 {
-	char	temp;
+	int	len;
 
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-static void	ft_revstr(char *s)
-{
-	size_t	len;
-	size_t	i;
-
-	len = ft_strlen(s);
-	i = 0;
-	while (i < len / 2)
+	len = 0;
+	if (n < 0)
+		len++;
+	while (n)
 	{
-		ft_swap(&s[i], &s[len - i - 1]);
-		i++;
+		len++;
+		n /= 10;
 	}
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*str;
+	int		len;
 	int		sign;
-	int		i;
+	int		temp;
 
 	if (n == 0)
 		return (ft_strdup("0"));
-	if (n == INT_MIN)
-		return (ft_strdup("-2147483648"));
-	sign = (n < 0) ? -1 : 1;
-	str = malloc(12);
+	sign = 1 - 2 * (n < 0);
+	temp = n;
+	len = ft_intlen(n);
+	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
-	i = 0;
-	while (n)
+	str[len] = '\0';
+	while (len > 0)
 	{
-		str[i++] = (n % 10) * sign + '0';
+		str[--len] = (n % 10) * sign + '0';
 		n /= 10;
 	}
 	if (sign == -1)
-		str[i++] = '-';
-	str[i] = '\0';
-	ft_revstr(str);
+		str[0] = '-';
 	return (str);
 }

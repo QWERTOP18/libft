@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 18:06:29 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/10/29 21:48:34 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/10/31 13:03:03 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-static ize_t	ft_word_len(char const *s, char c)
+static size_t	ft_word_len(char const *s, char c)
 {
 	size_t	len;
 
@@ -78,7 +78,8 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != c)
 		{
 			word_len = ft_word_len(&s[i], c);
-			if (!(tab[j] = ft_substr(s, i, word_len)))
+			(tab[j] = ft_substr(s, i, word_len));
+			if (!tab[j])
 				return (ft_all_free(tab));
 			i += word_len - 1;
 			j++;

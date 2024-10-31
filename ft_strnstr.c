@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 16:23:21 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/10/29 21:44:08 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/10/31 13:46:51 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,11 @@ int	main(void)
 {
 	const char	*largestring = "Foo Bar Baz";
 	const char	*smallstring = "Bar";
-	char		*ptr;
 	char		*ptr1;
 
-	ptr = strnstr(largestring, smallstring, 4);
-	ptr1 = ft_strnstr(largestring, smallstring, 4);
-	printf("ptr: %p\n", ptr);
-	printf("ptr1: %p\n", ptr1);
+	ptr1 = ft_strnstr(largestring, smallstring, 10);
+	ft_putendl_fd(ptr1, 1);
 	return (0);
 }
-
+// ccw -L. -D DEBUG ft_strnstr.c -lft
 #endif

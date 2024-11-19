@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:24:31 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/10/27 17:24:40 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/11/19 13:10:55 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
+		return (c ^ 32);
 	return (c);
 }

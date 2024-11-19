@@ -6,13 +6,13 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 09:49:14 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/10/31 13:38:41 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/11/19 14:38:10 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
+# define ENDIAN 8
 # include <limits.h>
 # include <stddef.h>
 # include <stdint.h>
@@ -24,7 +24,7 @@
 #  include <string.h>
 # endif
 
-# define _ISBIT(bit) ((bit < 8) ? (1 << (bit)) << 8 : (1 << (bit)) >> 8)
+// # define _ISBIT(bit) ((bit < 8) ? (1 << (bit)) << 8 : (1 << (bit)) >> 8)
 
 typedef struct s_list
 {
@@ -79,20 +79,36 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
+// typedef enum e_ctype
+// {
+// 	_ISUPPER = _ISBIT(0),
+// 	_ISLOWER = _ISBIT(1),
+// 	_ISALPHA = _ISBIT(2),
+// 	_ISDIGIT = _ISBIT(3),
+// 	_ISXDIGIT = _ISBIT(4),
+// 	_ISSPACE = _ISBIT(5),
+// 	_ISPRINT = _ISBIT(6),
+// 	_ISGRAPH = _ISBIT(7),
+// 	_ISBLANK = _ISBIT(8),
+// 	_ISCNTRL = _ISBIT(9),
+// 	_ISPUNCT = _ISBIT(10),
+// 	_ISALNUM = _ISBIT(11)
+// }					t_ctype;
+
 typedef enum e_ctype
 {
-	_ISUPPER = _ISBIT(0),
-	_ISLOWER = _ISBIT(1),
-	_ISALPHA = _ISBIT(2),
-	_ISDIGIT = _ISBIT(3),
-	_ISXDIGIT = _ISBIT(4),
-	_ISSPACE = _ISBIT(5),
-	_ISPRINT = _ISBIT(6),
-	_ISGRAPH = _ISBIT(7),
-	_ISBLANK = _ISBIT(8),
-	_ISCNTRL = _ISBIT(9),
-	_ISPUNCT = _ISBIT(10),
-	_ISALNUM = _ISBIT(11)
+	_ISUPPER = 1 << (0 + ENDIAN),
+	_ISLOWER = 1 << (1 + ENDIAN),
+	_ISALPHA = 1 << (2 + ENDIAN),
+	_ISDIGIT = 1 << (3 + ENDIAN),
+	_ISXDIGIT = 1 << (4 + ENDIAN),
+	_ISSPACE = 1 << (5 + ENDIAN),
+	_ISPRINT = 1 << (6 + ENDIAN),
+	_ISGRAPH = 1 << (7 + ENDIAN),
+	_ISBLANK = 1 << (8),
+	_ISCNTRL = 1 << (9),
+	_ISPUNCT = 1 << (10),
+	_ISALNUM = 1 << (11)
 }					t_ctype;
 
 #endif // LIBFT_H

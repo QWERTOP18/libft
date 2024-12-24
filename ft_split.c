@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 18:06:29 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/24 15:52:22 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/24 17:34:58 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ char	**ft_split(char const *s, char c)
 	tab = ft_calloc((ft_count_words(s, c) + 1), sizeof(char *));
 	if (!tab)
 		return (NULL);
-	i = 0;
+	i = -1;
 	j = 0;
-	while (s[i])
+	while (s[++i])
 	{
 		if (s[i] != c)
 		{
@@ -82,7 +82,7 @@ char	**ft_split(char const *s, char c)
 			tab[j] = ft_substr(s, i, word_len);
 			if (!tab[j])
 				return (ft_strs_clear(tab));
-			i += word_len;
+			i += word_len - 1;
 			j++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 16:39:04 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/10/29 18:06:12 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/24 16:12:24 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 
 	if (nmemb == 0 || size == 0)
-		return (ft_strdup(""));
+		return (NULL);
 	if (SIZE_MAX / nmemb < size)
 		return (NULL);
 	ptr = malloc(nmemb * size);

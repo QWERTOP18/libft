@@ -32,7 +32,6 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		len;
 	int		sign;
-	int		temp;
 
 	if (n == 0)
 		return (ft_strdup("0"));
@@ -40,7 +39,6 @@ char	*ft_itoa(int n)
 		sign = -1;
 	else
 		sign = 1;
-	temp = n;
 	len = ft_intlen(n);
 	str = malloc(len + 1);
 	if (!str)

@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 16:59:25 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/10/31 13:50:16 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/11/26 20:52:03 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ char	*ft_itoa(int n)
 
 	if (n == 0)
 		return (ft_strdup("0"));
-	sign = 1 - 2 * (n < 0);
+	if (n < 0)
+		sign = -1;
+	else
+		sign = 1;
 	temp = n;
 	len = ft_intlen(n);
 	str = malloc(len + 1);

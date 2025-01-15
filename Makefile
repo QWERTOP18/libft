@@ -65,6 +65,13 @@ $(NAME) : $(OBJ)
 
 bonus : $(NAME)
 
+func : $(NAME)
+	nm -u $(NAME) | sort | uniq | grep -v ft_
+
+# so:
+# 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCSB)
+# 	gcc -nostartfiles -shared -o libft.so $(OBJ)
+
 %.o : %.c
 	$(CC) $(CFLGS) -c $^ -o $@
 

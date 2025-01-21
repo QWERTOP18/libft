@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char	**ft_all_free(char **tab)
+char	**ft_strs_free(char **tab)
 {
 	size_t	i;
 
@@ -80,7 +80,7 @@ char	**ft_split(char const *s, char c)
 			word_len = ft_word_len(&s[i], c);
 			(tab[j] = ft_substr(s, i, word_len));
 			if (!tab[j])
-				return (ft_all_free(tab));
+				return (ft_strs_free(tab));
 			i += word_len - 1;
 			j++;
 		}
